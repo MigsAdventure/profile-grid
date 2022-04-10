@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, Typography, styled } from "@mui/material";
 
-const AnimeCard = ({card}) => {
+const AnimeCard = ({card, toggleShow, id}) => {
   const StyledCard = styled(Card)(({theme}) => ({
     width: '100vw',
     cursor: 'pointer',
@@ -30,7 +30,7 @@ const AnimeCard = ({card}) => {
   }));
   
   return(
-    <StyledCard>
+    <StyledCard onClick={() => toggleShow(id)}>
       <CardContent sx={{display: 'flex', justifyContent: 'center', alignItems: 'stretch', border: 0, p: 0, height: '100%'}}>
         <CardMedia
           className={'card-media'}

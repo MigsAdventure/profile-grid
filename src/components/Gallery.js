@@ -1,24 +1,10 @@
 import React, { useState } from 'react';
 import { Grid, styled } from '@mui/material';
 import AnimeCard from './AnimeCard';
-import Carousel from "./ModalCarousel/Carousel";
-import CarouselSlide from "./ModalCarousel/CarouselSlide";
+import Carousel from "./Carousel/Carousel";
+import GalleryModal from "./GalleryModal";
 
 const Gallery = ({cards}) => {
-  const items = [
-    {
-      title: 'slide1'
-    },
-    {
-      title: 'slide2'
-    },
-    {
-      title: 'slide3'
-    },
-    {
-      title: 'slide4'
-    }
-  ]
   
   const StyledGrid = styled(Grid)(({theme}) => ({
     display: "flex",
@@ -33,16 +19,25 @@ const Gallery = ({cards}) => {
     }
   }))
   
+  const [open, setOpen] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const toggleShow = (id) => {
+    console.log('curr: ', id);
+    setSlide(id);
+    setOpen(x => !x)
+  };
   return(
     <>
-      <Carousel content={items} />
+      <GalleryModal open={open} toggleShow={toggleShow}>
+        <Carousel content={cards} currIndex={slide} />
+      </GalleryModal>
       <Grid container spacing={1} sx={{ p:1 }} direction={"row"}>
         {
           cards.length ?
-            cards.map((card) => {
+            cards.map((card, i) => {
               return (
                 <StyledGrid item key={card.mal_id} xs={12} sm={6} md={4} lg={3}>
-                  <AnimeCard card={card} />
+                  <AnimeCard id={i} card={card} toggleShow={toggleShow} />
                 </StyledGrid>
               )
           }):

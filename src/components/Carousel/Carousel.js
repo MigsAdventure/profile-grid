@@ -9,7 +9,7 @@ const Carousel = (props) => {
     return <div onClick={clickHandler}>{icon}</div>
   }
   
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(props.currIndex);
   const numSlides = props.content.length;
   
   const onArrowClick = (direction) => {
