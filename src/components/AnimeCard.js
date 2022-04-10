@@ -18,7 +18,7 @@ const AnimeCard = ({card}) => {
     [theme.breakpoints.up('sm')]: {
       width: '50vw',
       maxWidth: 450
-  }
+    }
   }));
   
   const StyledTypography = styled(Typography)(() => ({

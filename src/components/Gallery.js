@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
 import { Grid, styled } from '@mui/material';
 import AnimeCard from './AnimeCard';
-import Carousel from "./ModalCorousel/ModalCarousel";
+import Carousel from "./ModalCarousel/Carousel";
+import CarouselSlide from "./ModalCarousel/CarouselSlide";
 
 const Gallery = ({cards}) => {
+  const items = [
+    {
+      title: 'slide1'
+    },
+    {
+      title: 'slide2'
+    },
+    {
+      title: 'slide3'
+    },
+    {
+      title: 'slide4'
+    }
+  ]
+  
   const StyledGrid = styled(Grid)(({theme}) => ({
     display: "flex",
     justifyContent: "center",
@@ -19,6 +35,7 @@ const Gallery = ({cards}) => {
   
   return(
     <>
+      <Carousel content={items} />
       <Grid container spacing={1} sx={{ p:1 }} direction={"row"}>
         {
           cards.length ?
@@ -31,7 +48,6 @@ const Gallery = ({cards}) => {
           }):
             <></>
         }
-        
       </Grid>
     </>
   );
