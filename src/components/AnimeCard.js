@@ -15,7 +15,7 @@ const AnimeCard = ({card}) => {
   
   return(
     <StyledCard>
-      <CardContent>
+      <CardContent sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', border: 0, p: 0, height: '100%'}}>
         <CardMedia
           className={'card-media'}
           sx={{ width: 'fill-available', transition: 300 }}
@@ -24,6 +24,7 @@ const AnimeCard = ({card}) => {
           alt={card.title}
         >
         </CardMedia>
+        <StyledTypography className={'typography'} variant={'h4'}>{card.title}</StyledTypography>
       </CardContent>
     </StyledCard>
   );
