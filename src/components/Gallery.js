@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, styled } from '@mui/material';
+import AnimeCard from './AnimeCard';
 
 const Gallery = ({cards}) => {
   const StyledGrid = styled(Grid)(({theme}) => ({
@@ -16,8 +17,8 @@ const Gallery = ({cards}) => {
           cards.length ?
             cards.map((card) => {
               return (
-                <StyledGrid key={card.mal_id}>
-                  <div>{card.title}</div>
+                <StyledGrid key={card.mal_id} xs={12} sm={6} md={4} lg={3}>
+                  <AnimeCard card={card} />
                 </StyledGrid>
               )
           }):
