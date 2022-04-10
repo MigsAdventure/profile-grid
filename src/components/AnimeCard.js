@@ -24,7 +24,9 @@ const AnimeCard = ({card}) => {
   const StyledTypography = styled(Typography)(() => ({
     transform: 'scale(0)',
     transition: '0.5s',
-    opacity: '0'
+    opacity: '0',
+    display: 'flex',
+    alignSelf: 'center'
   }));
   
   return(
