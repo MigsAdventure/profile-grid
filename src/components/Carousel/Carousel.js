@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CarouselSlide from './CarouselSlide';
-// import Slide from '@mui/material'
+import { Grid } from '@mui/material';
 
 const Carousel = (props) => {
   const Arrow = (props) => {
@@ -19,11 +19,17 @@ const Carousel = (props) => {
   }
   
   return (
-    <div>
-      <Arrow direction={'left'} clickHandler={() => onArrowClick('left')} />
-        <CarouselSlide content={props.content[index]}/> )
-      <Arrow direction={'right'} clickHandler={() => onArrowClick('right')} />
-    </div>
+    <Grid container sx={{ zIndex: '9999999', display:'flex', alignItems: 'center', justifyContent: 'center' }} >
+      <Grid item xs={1}>
+        <Arrow direction={'left'} clickHandler={() => onArrowClick('left')} />
+      </Grid>
+      <Grid item xs={10}>
+        <CarouselSlide  content={props.content[index]}/> )
+      </Grid>
+      <Grid item xs={1}>
+        <Arrow direction={'right'} clickHandler={() => onArrowClick('right')} />
+      </Grid>
+    </Grid>
   )
 }
 
