@@ -19,25 +19,24 @@ const AnimeCard = ({card}) => {
       width: '50vw',
       maxWidth: 450
   }
-  }))
+  }));
   
   const StyledTypography = styled(Typography)(() => ({
     transform: 'scale(0)',
-    transition: 500,
+    transition: '0.5s',
     opacity: '0'
   }));
   
   return(
     <StyledCard>
-      <CardContent sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', border: 0, p: 0, height: '100%'}}>
+      <CardContent sx={{display: 'flex', justifyContent: 'center', alignItems: 'stretch', border: 0, p: 0, height: '100%'}}>
         <CardMedia
           className={'card-media'}
-          sx={{ width: 'fill-available', transition: 300 }}
+          sx={{ width: 'fill-available', transition: '0.3s' }}
           component={'img'}
           image={card.images.webp.image_url}
           alt={card.title}
-        >
-        </CardMedia>
+        />
         <StyledTypography className={'typography'} position={'absolute'} variant={'h4'}>{card.title}</StyledTypography>
       </CardContent>
     </StyledCard>

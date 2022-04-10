@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, styled } from '@mui/material';
 import AnimeCard from './AnimeCard';
+import Carousel from "./ModalCorousel/ModalCarousel";
 
 const Gallery = ({cards}) => {
   const StyledGrid = styled(Grid)(({theme}) => ({
@@ -8,6 +9,12 @@ const Gallery = ({cards}) => {
     justifyContent: "center",
     flexBasis: "100%",
     maxHeight: 850,
+    [theme.breakpoints.up('sm')]: {
+      maxHeight: 620
+    },
+    [theme.breakpoints.up('xl')]: {
+      maxWidth: '20%'
+    }
   }))
   
   return(
