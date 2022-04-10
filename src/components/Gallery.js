@@ -17,7 +17,7 @@ const Gallery = ({cards}) => {
           cards.length ?
             cards.map((card) => {
               return (
-                <StyledGrid key={card.mal_id} xs={12} sm={6} md={4} lg={3}>
+                <StyledGrid item key={card.mal_id} xs={12} sm={6} md={4} lg={3}>
                   <AnimeCard card={card} />
                 </StyledGrid>
               )

@@ -2,9 +2,23 @@ import React from 'react';
 import { Card, CardMedia, CardContent, Typography, styled } from "@mui/material";
 
 const AnimeCard = ({card}) => {
-  const StyledCard = styled(Card)(() => ({
+  const StyledCard = styled(Card)(({theme}) => ({
     width: '100vw',
     cursor: 'pointer',
+    flexBasis: '100%',
+    boxShadow: 'none',
+    '&:hover .card-media': {
+      transform: 'scale(3)',
+      opacity: 0
+    },
+    '&:hover .typography': {
+      transform: 'scale(1)',
+      opacity: 1
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: '50vw',
+      maxWidth: 450
+  }
   }))
   
   const StyledTypography = styled(Typography)(() => ({
@@ -24,7 +38,7 @@ const AnimeCard = ({card}) => {
           alt={card.title}
         >
         </CardMedia>
-        <StyledTypography className={'typography'} variant={'h4'}>{card.title}</StyledTypography>
+        <StyledTypography className={'typography'} position={'absolute'} variant={'h4'}>{card.title}</StyledTypography>
       </CardContent>
     </StyledCard>
   );
