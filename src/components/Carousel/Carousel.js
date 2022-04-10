@@ -6,7 +6,7 @@ import { Close as CloseIcon, ChevronLeft, ChevronRight } from '@mui/icons-materi
 const Carousel = (props) => {
   const Arrow = (props) => {
     const { direction, clickHandler } = props;
-    const icon = direction === 'left' ? <ChevronLeft fontSize={'large'} />: <ChevronRight fontSize={'large'} />
+    const icon = direction === 'left' ? <ChevronLeft sx={{fontSize: 80}} />: <ChevronRight sx={{fontSize: 80}} />
     return (<div
         style={{width: '80px',
         height: '240px', display: 'flex',
@@ -31,14 +31,16 @@ const Carousel = (props) => {
     {
       pointerEvents: 'auto',
       position: 'fixed',
-      transform: 'translateY(-50%)',
+      transform: 'translate3d(0,-50%, 0)',
       top: '50%', [left ? 'left': 'right'] : 0,
       color: 'white',
       display: 'flex',
-      transition: '0.3s',
+      transition: 'opacity 0.3s',
+      cursor: 'pointer',
+      opacity: 0.5,
       '&:hover': {
-        backgroundColor: '#000',
-        opacity: 0.5
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        opacity: 1
       }
     }
   ));
