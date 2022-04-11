@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Card, CardMedia, CardContent, Typography, styled} from "@mui/material";
 
-const AnimeCard = ({card, toggleShow, id}) => {
+const AnimeCard = ({card, toggleShow, id, smallScreen}) => {
+  
   const StyledCard = styled(Card)(({theme}) => ({
     width: '100vw',
     cursor: 'pointer',
@@ -37,7 +38,7 @@ const AnimeCard = ({card, toggleShow, id}) => {
           className={'card-media'}
           sx={{ width: 'fill-available', transition: '0.3s'}}
           component={'img'}
-          image={card.images.webp.image_url}
+          image={smallScreen ? card.images.webp.large_image_url : card.images.webp.image_url}
           alt={card.title}
         />
         <StyledTypography className={'typography'} position={'absolute'} variant={'h4'}>{card.title}</StyledTypography>

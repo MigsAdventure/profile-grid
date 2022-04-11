@@ -7,6 +7,17 @@ import HeaderContent from "./HeaderContent";
 
 const Gallery = ({cards}) => {
   
+  const [open, setOpen] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const toggleShow = (id) => {
+    setSlide(id);
+    setOpen(x => !x)
+  };
+  
+  /** Under normal circumstances, we shouldn't go over the intrinsic size of images to
+   prevent pixelation, but for this project, I need it to fill the mobile view to patch portfolio grid 4 **/
+  const smallScreen = () => (window.innerWidth < 600);
+  
   const StyledGrid = styled(Grid)(({theme}) => ({
     display: "flex",
     justifyContent: "center",
@@ -20,13 +31,6 @@ const Gallery = ({cards}) => {
     }
   }))
   
-  const [open, setOpen] = useState(false);
-  const [slide, setSlide] = useState(0);
-  const toggleShow = (id) => {
-    setSlide(id);
-    setOpen(x => !x)
-  };
-  
   const renderCards = () => (
     cards.length ?
       cards.map((card, i) => {
@@ -34,7 +38,7 @@ const Gallery = ({cards}) => {
           <Grow key={card.mal_id} in={!!cards.length} timeout={{enter: 500}} style={{ transformOrigin: '50% 50% 0' }}
                 {...(!!cards.length ? { timeout: 100 * i } : {})}  unmountOnExit >
             <StyledGrid item key={card.mal_id} xs={12} sm={6} md={4} lg={3}>
-              <AnimeCard id={i} card={card} toggleShow={toggleShow} />
+              <AnimeCard id={i} card={card} toggleShow={toggleShow} smallScreen={smallScreen()} />
             </StyledGrid>
           </Grow>
         )
@@ -45,6 +49,7 @@ const Gallery = ({cards}) => {
   
   //prevent remapping of cards on every rerender
   const memoRenderCards = useMemo(() => renderCards(cards), [cards]);
+  
   return(
     <>
       <GalleryModal open={open} toggleShow={toggleShow}>
