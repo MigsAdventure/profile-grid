@@ -8,6 +8,10 @@ const style = {
   textAlign: 'center',
   zIndex: 1301,
   height: '100%',
+  // remove mui box focus outline
+  ['&:focus-visible']: {
+    outline: 'none'
+  }
 };
 
 const GalleryModal = (props) => {
@@ -19,22 +23,19 @@ const GalleryModal = (props) => {
         aria-describedby="transition-modal-description"
         onClose={props.toggleShow}
         open={props.open}
-        closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 600,
+          timeout: 100,
           style: {
             backgroundColor: 'rgba(0,0,0, 0.8)'
           }
         }}
       >
         <Grow in={props.open} style={{ transformOrigin: '50% 50% 0' }}
-              {...(props.open ? { timeout: 400 } : {})}>
-          <Fade in={props.open} timeout={500}>
+              {...(props.open ? { timeout: 800 } : {})}>
             <Box xs={12} sx={style}>
                   {props.children}
             </Box>
-          </Fade>
         </Grow>
       </Modal>
     </div>
