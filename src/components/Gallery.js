@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Grid, styled } from '@mui/material';
+import { Grid, styled, Typography } from '@mui/material';
 import AnimeCard from './AnimeCard';
 import Carousel from "./Carousel/Carousel";
 import GalleryModal from "./GalleryModal";
+import HeaderContent from "./HeaderContent";
 
 const Gallery = ({cards}) => {
   
@@ -30,6 +31,7 @@ const Gallery = ({cards}) => {
       <GalleryModal open={open} toggleShow={toggleShow}>
         <Carousel content={cards} currIndex={slide} toggleShow={toggleShow} />
       </GalleryModal>
+      <HeaderContent style={{margin: '40px 0 28px'}} title={'Portfolio Grid 4'} subtitle={'This grid shows the items in a popup'} />
       <Grid container spacing={1} sx={{ p:1 }} direction={"row"}>
         {
           cards.length ?

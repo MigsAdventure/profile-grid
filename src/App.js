@@ -24,6 +24,7 @@ const App = () => {
     typography: {
       fontFamily: '"Open Sans",sans-serif',
       fontWeight: 400,
+      letterSpacing: '-1.12px',
       h4: {
         fontFamily: '"Open Sans",sans-serif',
         fontWeight: 600
@@ -31,10 +32,12 @@ const App = () => {
       h2: {
         fontFamily: '"Poppins",sans-serif',
         fontWeight: 600,
+        letterSpacing: '-1.12px'
       },
       h3: {
         fontFamily: '"Poppins",sans-serif',
         fontWeight: 600,
+        letterSpacing: '-1.12px'
       }
     }
   });
