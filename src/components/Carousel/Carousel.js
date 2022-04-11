@@ -7,6 +7,21 @@ const Carousel = ({content, currIndex, toggleShow}) => {
   const [index, setIndex] = useState(currIndex);
   const numSlides = content.length;
   
+  // binding arrow keys to change slides
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      console.log('e.keyCode: ', e.keyCode);
+      e.keyCode === 39 && handleArrowClick('right');
+      e.keyCode === 37 && handleArrowClick('left');
+    }
+    // add event listener for keyboard arrow keys
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      // clean up event listener
+      window.removeEventListener('keydown', handleKeyDown);
+    }
+  })
+  
   const Arrow = ({direction, clickHandler}) => {
     const icon = direction === 'left' ? <ChevronLeft sx={{fontSize: 80}} />: <ChevronRight sx={{fontSize: 80}} />
     return (<div
@@ -20,7 +35,7 @@ const Carousel = ({content, currIndex, toggleShow}) => {
       </div>)
   }
   
-  const onArrowClick = (direction) => {
+  const handleArrowClick = (direction) => {
     const increment = direction === 'left' ? -1 : 1;
     const newIndex = (index + increment + numSlides) % numSlides;
     setIndex(newIndex);
@@ -101,14 +116,14 @@ const Carousel = ({content, currIndex, toggleShow}) => {
       <StyledClosedIcon onClick={toggleShow}  />
       <StyledGrid container >
         <StyledArrowWrapper item left>
-          <Arrow direction={'left'} clickHandler={() => onArrowClick('left')} />
+          <Arrow direction={'left'} clickHandler={() => handleArrowClick('left')} />
         </StyledArrowWrapper>
         {/*Did not use mui breakpoints to match the portfolio 4 exact widths*/}
         <StyledSlideWrapper item>
-          <CarouselSlide  content={content[index]}/> )
+          <CarouselSlide  content={content[index]}/>
         </StyledSlideWrapper>
         <StyledArrowWrapper item right>
-          <Arrow direction={'right'} clickHandler={() => onArrowClick('right')} />
+          <Arrow direction={'right'} clickHandler={() => handleArrowClick('right')} />
         </StyledArrowWrapper>
       </StyledGrid>
     </>
