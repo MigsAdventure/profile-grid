@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography, styled } from "@mui/material";
+import {Card, CardMedia, CardContent, Typography, styled} from "@mui/material";
 
 const AnimeCard = ({card, toggleShow, id}) => {
   const StyledCard = styled(Card)(({theme}) => ({

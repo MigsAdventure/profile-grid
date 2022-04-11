@@ -10,7 +10,6 @@ const Carousel = ({content, currIndex, toggleShow}) => {
   // binding arrow keys to change slides
   useEffect(() => {
     const handleKeyDown = (e) => {
-      console.log('e.keyCode: ', e.keyCode);
       e.keyCode === 39 && handleArrowClick('right');
       e.keyCode === 37 && handleArrowClick('left');
     }

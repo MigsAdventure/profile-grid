@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Grid, styled, Typography } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Grid, styled, Grow, CircularProgress } from '@mui/material';
 import AnimeCard from './AnimeCard';
 import Carousel from "./Carousel/Carousel";
 import GalleryModal from "./GalleryModal";
@@ -26,6 +26,7 @@ const Gallery = ({cards}) => {
     setSlide(id);
     setOpen(x => !x)
   };
+  
   return(
     <>
       <GalleryModal open={open} toggleShow={toggleShow}>
@@ -35,14 +36,18 @@ const Gallery = ({cards}) => {
       <Grid container spacing={1} sx={{ p:1 }} direction={"row"}>
         {
           cards.length ?
-            cards.map((card, i) => {
+              cards.map((card, i) => {
               return (
+                <Grow key={card.mal_id} in={!!cards.length} timeout={{enter: 500}} style={{ transformOrigin: '50% 50% 0' }}
+                      {...(!!cards.length ? { timeout: 100 * i } : {})}  unmountOnExit >
                 <StyledGrid item key={card.mal_id} xs={12} sm={6} md={4} lg={3}>
                   <AnimeCard id={i} card={card} toggleShow={toggleShow} />
                 </StyledGrid>
+                </Grow>
               )
-          }):
-            <></>
+          })
+            :
+              <CircularProgress size={'7em'}  sx={{ position: 'fixed', top: '50%', transform: 'translateY(-50%)', margin: 'auto', left: 0, right: 0}}/>
         }
       </Grid>
     </>

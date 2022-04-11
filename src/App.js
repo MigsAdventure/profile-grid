@@ -41,8 +41,6 @@ const App = () => {
       }
     }
   });
-  theme = responsiveFontSizes(theme);
-  
   return (
     <ThemeProvider theme={theme}>
       <main className={"App"}>

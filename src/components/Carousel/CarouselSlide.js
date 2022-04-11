@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Grid, Typography, Fade } from "@mui/material";
 
 const CarouselSlide = ({content}) => {
-  console.log('content: ', content);
   return (
     <Box sx={{ flexGrow: 1, backgroundColor: '#d1e8f6', zIndex: 1302 }}>
       <Fade timeout={500} in={true}>
@@ -27,7 +26,7 @@ const CarouselSlide = ({content}) => {
         </Grid>
         {
         content.trailer?.embed_url ?
-          <Grid item xs={12} sx={{position: 'relative', overflow: 'hidden', paddingBottom: '56%', margin: '50px 0 30px'}} >
+          <Grid item xs={12} sx={{position: 'relative', overflow: 'hidden', paddingBottom: '50%', margin: '50px 0 30px'}} >
             <iframe
               src={content.trailer?.embed_url}
               frameBorder="0"

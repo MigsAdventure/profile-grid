@@ -15,7 +15,6 @@ const style = {
 };
 
 const GalleryModal = (props) => {
-  
   return (
     <div>
       <Modal

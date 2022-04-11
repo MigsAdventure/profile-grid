@@ -6,6 +6,7 @@ import './index.css';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+// NOTE strict mode renders twice on dev mode only
 const app = (
   <StrictMode>
       <App />
