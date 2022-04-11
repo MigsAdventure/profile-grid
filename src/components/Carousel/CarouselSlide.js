@@ -21,7 +21,7 @@ const CarouselSlide = ({content}) => {
           </Typography>
         </Grid>
         <Grid item xs={12} md={8} lg={9} align={'left'}>
-          <Typography lineHeight={'28px'} variant={'p'} >
+          <Typography lineHeight={'28px'} variant={'body1'} >
             {content.synopsis}
           </Typography>
         </Grid>
@@ -31,7 +31,6 @@ const CarouselSlide = ({content}) => {
             <iframe
               src={content.trailer?.embed_url}
               frameBorder="0"
-              allow="autoplay; encrypted-media"
               allowFullScreen
               title="video"
               style={{ position: 'absolute', top: 0, left: 0, right: 0, margin: 'auto', width: '100%', height: '100%', maxWidth: '800px'}}

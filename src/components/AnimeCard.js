@@ -26,7 +26,8 @@ const AnimeCard = ({card, toggleShow, id}) => {
     transition: '0.5s',
     opacity: '0',
     display: 'flex',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    maxWidth: '300px'
   }));
   
   return(
@@ -34,7 +35,7 @@ const AnimeCard = ({card, toggleShow, id}) => {
       <CardContent sx={{display: 'flex', justifyContent: 'center', alignItems: 'stretch', border: 0, p: 0, height: '100%'}}>
         <CardMedia
           className={'card-media'}
-          sx={{ width: 'fill-available', transition: '0.3s' }}
+          sx={{ width: 'fill-available', transition: '0.3s'}}
           component={'img'}
           image={card.images.webp.image_url}
           alt={card.title}

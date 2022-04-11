@@ -20,7 +20,24 @@ const App = () => {
     });
   }, [])
   
-  let theme = createTheme();
+  let theme = createTheme({
+    typography: {
+      fontFamily: '"Open Sans",sans-serif',
+      fontWeight: 400,
+      h4: {
+        fontFamily: '"Open Sans",sans-serif',
+        fontWeight: 600
+      },
+      h2: {
+        fontFamily: '"Poppins",sans-serif',
+        fontWeight: 600,
+      },
+      h3: {
+        fontFamily: '"Poppins",sans-serif',
+        fontWeight: 600,
+      }
+    }
+  });
   theme = responsiveFontSizes(theme);
   
   return (
