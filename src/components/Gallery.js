@@ -31,21 +31,27 @@ const Gallery = ({cards}) => {
     }
   }))
   
-  const renderCards = () => (
-    cards.length ?
-      cards.map((card, i) => {
-        return (
-          <Grow key={card.mal_id} in={!!cards.length} timeout={{enter: 500}} style={{ transformOrigin: '50% 50% 0' }}
-                {...(!!cards.length ? { timeout: 100 * i } : {})}  unmountOnExit >
-            <StyledGrid item key={card.mal_id} xs={12} sm={6} md={4} lg={3}>
-              <AnimeCard id={i} card={card} toggleShow={toggleShow} smallScreen={smallScreen()} />
-            </StyledGrid>
-          </Grow>
-        )
-      })
-      :
-      <CircularProgress size={'7em'}  sx={{ position: 'fixed', top: '50%', transform: 'translateY(-50%)', margin: 'auto', left: 0, right: 0}}/>
-  )
+  const renderCards = () => {
+    let x = 0;
+    return(
+      cards.length ?
+        cards.map((card, i) => {
+          // keep transition animation at the same speed even after fetching new anime titles
+          i % 25 === 0 && (x = 0)
+          x++
+          return (
+            <Grow key={card.mal_id} in={!!cards.length} timeout={{enter: 500}} style={{ transformOrigin: '50% 50% 0' }}
+                  {...(!!cards.length ? { timeout: (100 * x) } : {})}  unmountOnExit >
+              <StyledGrid item xs={12} sm={6} md={4} lg={3}>
+                <AnimeCard id={i} card={card} toggleShow={toggleShow} smallScreen={smallScreen()} />
+              </StyledGrid>
+            </Grow>
+          )
+        })
+        :
+        <CircularProgress size={'7em'}  sx={{ position: 'fixed', top: '50%', transform: 'translateY(-50%)', margin: 'auto', left: 0, right: 0}}/>
+    )
+  }
   
   //prevent remapping of cards on every rerender
   const memoRenderCards = useMemo(() => renderCards(cards), [cards]);
