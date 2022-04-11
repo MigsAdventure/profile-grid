@@ -5,7 +5,7 @@ const CarouselSlide = ({content}) => {
   return (
     <Box sx={{ flexGrow: 1, backgroundColor: '#d1e8f6', zIndex: 1302 }}>
       <Fade timeout={500} in={true}>
-        <Grid container spacing={2} sx={{ p: 5, maxWidth: 1200, margin: 'auto'}} >
+        <Grid container spacing={0} sx={{ p: 5, maxWidth: 1200, margin: 'auto'}} >
           <Grid item xs={12}>
             <Typography variant={'h2'} fontWeight={'bold'} gutterBottom >
               {content.title}
