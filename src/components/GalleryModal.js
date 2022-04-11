@@ -22,7 +22,10 @@ const GalleryModal = (props) => {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 600
+          timeout: 600,
+          style: {
+            backgroundColor: 'rgba(0,0,0, 0.8)'
+          }
         }}
       >
         <Grow in={props.open} style={{ transformOrigin: '50% 50% 0' }}

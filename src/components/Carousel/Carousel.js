@@ -64,9 +64,18 @@ const Carousel = ({content, currIndex, toggleShow}) => {
   
   const StyledClosedIcon = styled(Close)(({theme}) => (
     {
-      position: 'absolute', top: 0, right: 0, fontSize: 40, fontWeight: 'bold', p: 3, color: 'black', zIndex: 1303,
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      fontSize: 36,
+      fontWeight: 'bold',
+      p: 3,
+      color: 'black',
+      zIndex: 1303,
       [theme.breakpoints.up('md')]: {
-        opacity: '0.3',
+        color: 'white',
+        opacity: '0.5',
+        padding: '25px'
       }
     }
   ));
