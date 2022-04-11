@@ -24,14 +24,14 @@ const Carousel = ({content, currIndex, toggleShow}) => {
   const Arrow = ({direction, clickHandler}) => {
     const icon = direction === 'left' ? <ChevronLeft sx={{fontSize: 80}} />: <ChevronRight sx={{fontSize: 80}} />
     return (<div
-        style={{width: '100%',
+      style={{width: '100%',
         height: '100%', display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'}}
-        onClick={clickHandler}
-      >
-        {icon}
-      </div>)
+      onClick={clickHandler}
+    >
+      {icon}
+    </div>)
   }
   
   const handleArrowClick = (direction) => {

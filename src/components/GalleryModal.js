@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Backdrop, Box, Modal, CardContent, Fade, Grow } from "@mui/material";
+import React from 'react';
+import { Backdrop, Box, Modal, Grow } from "@mui/material";
 
 const style = {
   display: 'flex',

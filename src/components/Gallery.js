@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Grid, styled, Grow, CircularProgress } from '@mui/material';
 import AnimeCard from './AnimeCard';
 import Carousel from "./Carousel/Carousel";
