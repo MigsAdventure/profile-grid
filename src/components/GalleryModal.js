@@ -6,7 +6,8 @@ const style = {
   transform: 'scale(0)',
   margin: 'auto',
   textAlign: 'center',
-  zIndex: 99999,
+  zIndex: 1301,
+  height: '100%',
 };
 
 const GalleryModal = (props) => {
@@ -21,11 +22,12 @@ const GalleryModal = (props) => {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 700
+          timeout: 600
         }}
       >
-        <Grow in={props.open} timeout={500}>
-          <Fade in={props.open} timeout={300}>
+        <Grow in={props.open} style={{ transformOrigin: '50% 50% 0' }}
+              {...(props.open ? { timeout: 400 } : {})}>
+          <Fade in={props.open} timeout={500}>
             <Box xs={12} sx={style}>
                   {props.children}
             </Box>

@@ -22,14 +22,13 @@ const Gallery = ({cards}) => {
   const [open, setOpen] = useState(false);
   const [slide, setSlide] = useState(0);
   const toggleShow = (id) => {
-    console.log('curr: ', id);
     setSlide(id);
     setOpen(x => !x)
   };
   return(
     <>
       <GalleryModal open={open} toggleShow={toggleShow}>
-        <Carousel content={cards} currIndex={slide} />
+        <Carousel content={cards} currIndex={slide} toggleShow={toggleShow} />
       </GalleryModal>
       <Grid container spacing={1} sx={{ p:1 }} direction={"row"}>
         {
